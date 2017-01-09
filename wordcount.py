@@ -1,5 +1,6 @@
 # put your code here.
 import string
+import sys
 
 
 def create_word_list(filename):
@@ -29,12 +30,12 @@ def make_count_dict(words):
 def print_counts(word_count):
     # for word in word_count:
     #     print "%s %d" % (word, word_count[word])
-    for word, count in word_count.items():
+    for word, count in word_count.iteritems():
         print "%s %r" % (word, count)
 
 # print_counts(make_count_dict(create_word_list("test.txt")))
 # count_words("test.txt")
 
-words = create_word_list("test.txt")
+words = create_word_list(sys.argv[1])
 word_count = make_count_dict(words)
 print_counts(word_count)
