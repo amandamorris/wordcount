@@ -1,4 +1,7 @@
 # put your code here.
+import string
+
+
 def create_word_list(filename):
     my_file = open(filename)
     words = []
@@ -13,7 +16,13 @@ def create_word_list(filename):
 def make_count_dict(words):
     word_count = {}
     for word in words:
-        word_count[word] = word_count.get(word, 0) + 1
+        word = word.lower()
+        final_word = ""
+        for char in word:
+            if char not in string.punctuation:
+                final_word += char
+        # word = word.translate(word.maketrans("", ""), string.punctuation)
+        word_count[final_word] = word_count.get(final_word, 0) + 1
     return word_count
 
 
